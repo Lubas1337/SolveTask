@@ -12,7 +12,11 @@ import java.util.Optional;
 @Repository
 public interface ExchangeRateRepository extends JpaRepository<ExchangeRate, Long> {
     List<ExchangeRate> findByBaseCurrencyAndTargetCurrencyAndType(String baseCurrency, String targetCurrency, String type);
-    Optional<ExchangeRate> findFirstByTargetCurrencyAndTypeOrderByDateAsc(String targetCurrency, String type);
 
+    @Query(value = "SELECT * " +
+            "FROM exchange_rate " +
+            "WHERE DAY(date) = DAY(CURRENT_DATE)",
+            nativeQuery = true)
+    Optional<ExchangeRate> checkToday();
 
 }

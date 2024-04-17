@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="2" author="Abylay">
+        <createTable tableName="account">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="account_number" type="BIGINT"/>
+        </createTable>
+
+        <createTable tableName="expense_limit">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="sum" type="DECIMAL(13,2)"/>
+            <column name="currency_shortname" type="VARCHAR(3)"/>
+            <column name="datetime" type="TIMESTAMP"/>
+            <column name="expense_category" type="VARCHAR(10)"/>
+            <column name="account_id" type="BIGINT">
+                <constraints foreignKeyName="account_expense_limit_fk"
+                             referencedTableName="account"
+                             referencedColumnNames="id"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="transaction">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="sum" type="DECIMAL(13,2)"/>
+            <column name="currency_shortname" type="VARCHAR(3)"/>
+            <column name="datetime" type="TIMESTAMP"/>
+            <column name="expense_category" type="VARCHAR(10)"/>
+            <column name="account_from_id" type="BIGINT">
+                <constraints foreignKeyName="account_from_transaction_fk"
+                             referencedTableName="account"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="account_to_id" type="BIGINT">
+                <constraints foreignKeyName="account_to_transaction_fk"
+                             referencedTableName="account"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="limit_exceeded" type="BOOLEAN"/>
+            <column name="limit_remaining" type="DECIMAL(13,2)"/>
+        </createTable>
+        <sql>
+
+            CREATE SEQUENCE public.s_account
+                INCREMENT BY 1
+                MINVALUE 1
+                MAXVALUE 9223372036854775807
+                START 100
+            CACHE 1
+            NO CYCLE;
+
+            CREATE SEQUENCE public.s_expense_limit
+                INCREMENT BY 1
+                MINVALUE 1
+                MAXVALUE 9223372036854775807
+                START 100
+            CACHE 1
+            NO CYCLE;
+
+                CREATE SEQUENCE public.s_transaction
+                    INCREMENT BY 1
+                    MINVALUE 1
+                    MAXVALUE 9223372036854775807
+                    START 100
+            CACHE 1
+            NO CYCLE;
+        </sql>
+    </changeSet>
+</databaseChangeLog>

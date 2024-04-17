@@ -6,5 +6,6 @@
                    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <include file="/db/changelog/17042401_create_exchange_rate.xml"/>
+    <include file="/db/changelog/18042401_create_new_tables.xml"/>
 
 </databaseChangeLog>
