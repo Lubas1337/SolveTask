@@ -59,6 +59,9 @@ public class ExchangeRateService {
         }
     }
 
+    public double checkToday(){
+        return exchangeRateRepository.checkToday().get().getRate();
+    }
 
     @Scheduled(cron = "0 0 0 * * ?") // запускается каждый день в полночь
     //@Scheduled(fixedDelay = 10000) // запускается каждый 10000мс

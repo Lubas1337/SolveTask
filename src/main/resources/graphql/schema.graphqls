@@ -1,4 +1,4 @@
-scalar DateTime @specifiedBy(url: "https://scalars.graphql.org/andimarek/date-time.html")
+scalar Date
 
 type Query {
     hello(name: String!): String
@@ -13,11 +13,14 @@ type Mutation {
     createTransaction(
         sum: Float!,
         currencyShortname: String!,
-        datetime: String!,
         expenseCategory: String!,
         accountFromNumber: Float!,
         accountToNumber: Float!
     ): Transaction!
+
+    createAccount(
+        accountNumber: Float
+    ): Account!
 }
 
 type Account {
