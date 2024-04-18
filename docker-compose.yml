@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: salve-postgres1
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=salve
+      - POSTGRES_USER=salve
+      - POSTGRES_PASSWORD=salve
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - TZ=Asia/Almaty
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: salve-pgAdmin4
+    restart: always
+    ports:
+      - "8888:8888"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: salve@test.kz
+      PGADMIN_DEFAULT_PASSWORD: salvesalve
