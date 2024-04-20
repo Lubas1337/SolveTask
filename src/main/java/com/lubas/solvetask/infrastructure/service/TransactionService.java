@@ -15,7 +15,6 @@ import java.time.YearMonth;
 
 @Service
 @RequiredArgsConstructor
-@RequestMapping("/api/rest/v0.1")
 public class TransactionService {
     private final TransactionRepository transactionRepository;
     private final AccountRepository accountRepository;
