@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/api/rest/v0.1")
+@RequestMapping("/api/rest/v0.1/check")
 public class HealthRestController {
     private final Map<String, String> result = Map.of("status", "UP");
     private final ResponseEntity<Map<String, String>> response = ResponseEntity.ok(result);
