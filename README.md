@@ -5,46 +5,46 @@ tasks:
 
 
 
-# Deployment
+## Deployment
 
-## clone repo
+### clone repo
 
 ```bash
     git clone https://github.com/Lubas1337/SolveTask
 ```
 
-## run Docker-compose file
+### run Docker-compose file
 
 ```bash
   sudo docker-compose up -d
 ```
 This is to create a database
 
-## run project 
+### run project 
 
 ```bash
   sudo mvn spring-boot:run
 ```
 
-# Documentation
+## Documentation
 
-## RequestMapping URL: /api/rest/v0.1/
+### RequestMapping URL: /api/rest/v0.1/
 
 
-## Endpoints
-# 1. Health Check
+### Endpoints
+## 1. Health Check
 
-## URL: /check/health
+### URL: /check/health
 Method: GET
 Description: Check the health status of the application.
 Response: Returns a JSON object indicating the status of the application.
 status: String representing the status of the application. Possible values include:
 "UP": Indicates that the application is running and healthy.
 
-## Endpoints
-# 1. Create New Expense Limit
+### Endpoints
+## 1. Create New Expense Limit
 
-## URL: /newLimit
+### URL: /newLimit
 Method: POST
 Description: Create a new expense limit for an account.
 Request Body:
@@ -52,9 +52,9 @@ ExpenseLimitDto: Data transfer object representing the details of the expense li
 Response: Returns the created expense limit object.
 
 
-# 2. Get Expense Limits with Transactions for an Account
+## 2. Get Expense Limits with Transactions for an Account
 
-## URL: /getLimitOnAccount/{accountNumber}
+### URL: /getLimitOnAccount/{accountNumber}
 Method: GET
 Description: Retrieve all expense limits with associated transactions for a specific account.
 Path Parameters:
@@ -62,9 +62,9 @@ accountNumber: Integer representing the account number.
 Response: Returns a list of expense limits with associated transactions.
 
 
-# 3. Create New Account
+## 3. Create New Account
 
-## URL: /newAccount/{accountNumber}
+### URL: /newAccount/{accountNumber}
 Method: POST
 Description: Create a new account with the provided account number.
 Path Parameters:
@@ -72,9 +72,9 @@ accountNumber: Integer representing the account number.
 Response: Returns the created account object.
 
 
-# 4. Find Account by ID
+## 4. Find Account by ID
 
-## URL: /getByIdAccount/{id}
+### URL: /getByIdAccount/{id}
 Method: GET
 Description: Retrieve an account by its unique ID.
 Path Parameters:
@@ -82,9 +82,9 @@ id: Long representing the unique ID of the account.
 Response: Returns the account object if found.
 
 
-# 5. Find Transaction by ID
+## 5. Find Transaction by ID
 
-## URL: /findTransaction/{id}
+### URL: /findTransaction/{id}
 Method: GET
 Description: Retrieve a transaction by its unique ID.
 Path Parameters:
@@ -92,9 +92,9 @@ id: Long representing the unique ID of the transaction.
 Response: Returns the transaction object if found.
 
 
-# 6. Create New Transaction
+## 6. Create New Transaction
 
-## URL: /createTransaction
+### URL: /createTransaction
 Method: POST
 Description: Create a new transaction between accounts.
 Request Body:
