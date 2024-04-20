@@ -7,6 +7,7 @@ import com.lubas.solvetask.domain.repository.AccountRepository;
 import com.lubas.solvetask.domain.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -14,6 +15,7 @@ import java.time.YearMonth;
 
 @Service
 @RequiredArgsConstructor
+@RequestMapping("/api/rest/v0.1")
 public class TransactionService {
     private final TransactionRepository transactionRepository;
     private final AccountRepository accountRepository;
@@ -21,7 +23,7 @@ public class TransactionService {
     private final ExchangeRateService exchangeRateService;
 
     public Transaction createTransaction(Double sum, String currencyShortname,
-                                         String expenseCategory, String category, Integer accountFromNumber, Integer accountToNumber) {
+                                         String expenseCategory, Integer accountFromNumber, Integer accountToNumber) {
 
         Account accountFrom = accountRepository.findByAccountNumber(accountFromNumber);
         Account accountTo = accountRepository.findByAccountNumber(accountToNumber);

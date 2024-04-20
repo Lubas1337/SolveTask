@@ -17,4 +17,5 @@ public class TransactionDto {
     private Integer accountToNumber;
     private Boolean limitExceeded;
     private Double limitRemaining;
+
 }
